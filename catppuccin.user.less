@@ -2,7 +2,7 @@
 @name Codeforces Catppuccin
 @namespace github.com/catppuccin/userstyles/styles/codeforces
 @homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/codeforces
-@version 2025.11.22
+@version 2000.01.01
 @updateURL https://github.com/catppuccin/userstyles/raw/main/styles/codeforces/catppuccin.user.less
 @supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Acodeforces
 @description Soothing pastel theme for Codeforces
@@ -34,8 +34,8 @@
     --notice-color: @subtext0;
     --border-color: @surface1;
     --muted-color: @subtext0;
-    --highlighted-blue-color: @blue;
-    --highlighted-green-color: @green;
+    --highlighted-blue-color: fade(@blue, 20);
+    --highlighted-green-color: fade(@green, 20);
 
     body {
       background: @base;
@@ -135,10 +135,14 @@
     .countdown,
     .contest-state-regular,
     ._StreamsSidebarFrame_timeMark,
+    .verdict-waiting,
     .cell-time,
+    .cell-judging,
     .cell-rejected,
+    .unsuccessfulChallengeCount,
     [style*="color:#888"],
     label.show-archived,
+    .small,
     small {
       color: var(--notice-color) !important;
     }
@@ -149,6 +153,9 @@
     .user-4000::first-letter,
     .user-4000-first-letter,
     .verdict-challenged,
+    .verdict-failed,
+    .cell-challenged,
+    .cell-challenged-locked,
     .cell-failed-system-test {
       color: @red !important;
     }
@@ -169,7 +176,10 @@
     .topic-rating,
     span[commentId] > span,
     .verdict-accepted,
-    .cell-passed-system-test {
+    .verdict-accepted-challenged,
+    .verdict-successful-challenge,
+    .cell-passed-system-test,
+    .successfulChallengeCount {
       color: @green !important;
     }
     .user-cyan {
@@ -177,7 +187,10 @@
     }
     .user-blue,
     span[style*="0000bb"],
-    .verdict-unsuccessful-challenge {
+    .verdict-rejected,
+    .verdict-unsuccessful-challenge,
+    .cell-accepted,
+    .cell-accepted-locked {
       color: @blue !important;
     }
     .user-violet {
@@ -210,6 +223,18 @@
         background: @crust;
       }
       a[style*="black"] {
+        color: @text !important;
+      }
+    }
+
+    .CodeforcesContestInformationFrame {
+      span[style*="color:green"] {
+        color: @green !important;
+      }
+      span[style*="color:red"] {
+        color: @red !important;
+      }
+      span[style*="color:black"] {
         color: @text !important;
       }
     }
@@ -305,6 +330,7 @@
     input {
       background-color: @surface0 !important;
       border: 1px solid @overlay0 !important;
+      color: @text !important;
     }
 
     .SelectBox {
