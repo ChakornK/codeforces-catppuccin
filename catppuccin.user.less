@@ -87,13 +87,13 @@
       &:hover {
         background: none;
         text-decoration: underline !important;
-        color: if(@flavor =latte, lighten(@blue, 10%), darken(@blue, 10%));
+        color: if(@flavor = latte, lighten(@blue, 10%), darken(@blue, 10%));
       }
     }
     a[name] {
       color: @blue !important;
       &:hover {
-        color: if(@flavor =latte, lighten(@blue, 10%), darken(@blue, 10%)) !important;
+        color: if(@flavor = latte, lighten(@blue, 10%), darken(@blue, 10%)) !important;
       }
     }
 
@@ -101,7 +101,7 @@
       background: @red;
       color: @base !important;
       &:hover {
-        background: if(@flavor =latte, lighten(@red, 10%), darken(@red, 10%));
+        background: if(@flavor = latte, lighten(@red, 10%), darken(@red, 10%));
       }
     }
 
@@ -154,7 +154,7 @@
     .user-black,
     .user-legendary::first-letter,
     .legendary-user-first-letter {
-      color: if(@flavor =latte, darken(@text, 5%), lighten(@text, 5%)) !important;
+      color: if(@flavor = latte, darken(@text, 5%), lighten(@text, 5%)) !important;
     }
     .user-orange {
       color: @peach !important;
@@ -379,9 +379,9 @@
     }
 
     img[src*="codeforces-sponsored-by-ton"] {
-      mix-blend-mode: if(@flavor =latte, darken, plus-lighter);
+      mix-blend-mode: if(@flavor = latte, darken, plus-lighter);
     }
-    * when (not(@flavor =latte)) {
+    * when not(@flavor = latte) {
       img[src*="codeforces-sponsored-by-ton"] {
         filter: invert(1) sepia(1) hue-rotate(hue(@accent) - 39deg) saturate(2);
       }
