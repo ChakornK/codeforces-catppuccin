@@ -10,6 +10,29 @@
 	<a href="https://raw.githubusercontent.com/chakornk/codeforces-catppuccin/main/catppuccin.user.less"><img src="https://img.shields.io/badge/stylus-install-cba6f7?colorA=363a4f&style=for-the-badge"></a>
 </p>
 
+<p align="center">
+  <img src="assets/preview.png"/>
+</p>
+
+## Previews
+
+<details>
+<summary>🌻 Latte</summary>
+<img src="assets/latte.png"/> 
+</details>
+<details>
+<summary>🪴 Frappé</summary>
+<img src="assets/frappe.png"/>
+</details>
+<details>
+<summary>🌺 Macchiato</summary>
+<img src="assets/macchiato.png"/>
+</details>
+<details>
+<summary>🌿 Mocha</summary>
+<img src="assets/mocha.png"/>
+</details>
+
 ## Usage
 
 See [the userstyle usage instructions](https://userstyles.catppuccin.com/getting-started/usage/).
