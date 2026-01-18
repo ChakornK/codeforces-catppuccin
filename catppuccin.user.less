@@ -43,12 +43,14 @@
     }
 
     .ttypography {
-      * {
+      &, h1, h2, h3, h4, h5, h6, table, pre, code, blockquote {
         color: @text;
       }
+      .MathJax {
+        color: @text !important;
+      }
       table {
-        &,
-        * {
+        &, td, th, tr {
           border-color: var(--border-color) !important;
         }
         tr:hover td {
@@ -84,7 +86,7 @@
     a:link,
     [class*="menu-list"] li a {
       color: @blue;
-      &:hover {
+      &:hover, &:active, &:focus {
         background: none;
         color: @blue;
       }
@@ -110,7 +112,7 @@
     .backLava {
       background: @surface0 !important;
       border-radius: 6px;
-      * {
+      .leftLava, .bottomLava, .cornerLava {
         background: none !important;
       }
     }
@@ -140,6 +142,7 @@
     .cell-rejected,
     .unsuccessfulChallengeCount,
     [style*="color:#888"],
+    [style*="color: #777"],
     label.show-archived,
     .small,
     small {
@@ -195,8 +198,8 @@
     .user-violet {
       color: @lavender !important;
     }
-    .user-gray {
-      color: @overlay2 !important;
+    .user-gray, [style*="color:gray"] {
+      color: @subtext0 !important;
     }
 
     del[style*="background:#ff8080"] {
@@ -204,6 +207,11 @@
     }
     ins[style*="background:#80ff80"] {
       background: fade(@green, 70%) !important;
+    }
+
+    span[style*="color:green"],
+    span[style*="color: green"] {
+      color: @green !important;
     }
 
     .roundbox {
@@ -214,7 +222,7 @@
       &[style*="f0f0f0"] {
         background: @base !important;
       }
-      * {
+      *:not(:where(.legendColorBox *)) {
         border-color: var(--border-color) !important;
       }
       .bottom-links,
@@ -263,14 +271,21 @@
       span {
         color: var(--muted-color) !important;
       }
-      span[style*="green"] {
-        color: @green !important;
-      }
     }
 
     .spoiler-content {
       background: fade(@accent, 20%);
       border-color: @overlay0;
+    }
+
+    div:has(+ table .legendColorBox) {
+      background-color: @surface0 !important;
+    }
+    table:has(.legendColorBox) {
+      color: @text !important;
+    }
+    .legendColorBox > div {
+      border-color: @overlay0 !important;
     }
 
     #userActivityGraph {
@@ -289,6 +304,16 @@
       rect[data-items=""] {
         fill: @surface1;
       }
+      svg text {
+        fill: @subtext0 !important;
+      }
+    }
+    ._UserActivityFrame_frame .userActivityRoundBox ._UserActivityFrame_header,
+    ._UserActivityFrame_frame
+      .userActivityRoundBox
+      ._UserActivityFrame_footer
+      ._UserActivityFrame_counterDescription {
+      color: @subtext0;
     }
 
     .datatable {
@@ -411,27 +436,26 @@
     img[src*="codeforces-sponsored-by-ton"] {
       mix-blend-mode: if(@flavor = latte, darken, plus-lighter);
     }
-    * when not(@flavor = latte) {
+    & when not(@flavor = latte) {
       img[src*="codeforces-sponsored-by-ton"] {
         filter: invert(1) sepia(1) hue-rotate(hue(@accent) - 39deg) saturate(2);
       }
 
-      img[src*="votedown-"],
-      img[src*="voteup-"] {
-        opacity: 1 !important;
-      }
-
       img[src*="tablesorter-"] {
-        filter: invert(1);
-      }
-
-      img[src*="icons/user"] {
-        filter: brightness(1.6) contrast(0.8);
+        filter: @text-filter;
       }
 
       img.tex-formula {
-        filter: invert(1);
+        filter: @text-filter;
       }
+    }
+
+    #footer {
+      border-top-color: @surface2;
+    }
+
+    .button-up {
+      background-color: transparent !important;
     }
 
     // https://github.com/bajrangCoder/acode-catppuccin
