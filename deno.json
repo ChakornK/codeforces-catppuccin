@@ -1,0 +1,7 @@
+{
+  "imports": { "less": "npm:less@4.2.1" },
+  "fmt": {
+    "indentWidth": 2,
+    "proseWrap": "never"
+  }
+}

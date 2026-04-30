@@ -18,7 +18,7 @@
 
 <details>
 <summary>🌻 Latte</summary>
-<img src="assets/latte.png"/> 
+<img src="assets/latte.png"/>
 </details>
 <details>
 <summary>🪴 Frappé</summary>
